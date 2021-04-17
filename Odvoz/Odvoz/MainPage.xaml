@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Odvoz.MainPage"
+             BackgroundColor="#F2F2F2">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackLayout Grid.Column="1" VerticalOptions="CenterAndExpand">
+            <Label Text="Odvoz" Margin="0, -200, 0, 20" FontSize="60" TextColor="Gray"/>
+            <Entry x:Name="jmenoEntry" Placeholder="Jméno" Margin="0, 0, 0, 10" TextColor="Gray" PlaceholderColor="Gray" BackgroundColor="White" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="zulEntry" Placeholder="ZUL" Margin="0, 5, 0, 5" TextColor="Gray" PlaceholderColor="Gray" BackgroundColor="White" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="ksEntry" Placeholder="ks" Margin="0, 5, 0, 5" TextColor="Gray" PlaceholderColor="Gray" BackgroundColor="White" HorizontalTextAlignment="Center"/>
+            
+            <Label Text="Polotovar?" TextColor="Gray" FontSize="20" Margin="0, -10, 0, -25" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Grid BackgroundColor="Transparent" HeightRequest="80">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Frame Grid.Column="0" x:Name="framePolotovarNe" CornerRadius="2" BackgroundColor="White" Margin="0, 23, 0, 23" Padding="0">
+                    <Label Text="Ne" x:Name="labelPolotovarNe" TextColor="Gray" FontSize="30" Margin="-2, -8, 0, 0" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="polotovarNe" Tapped="polotovarNe_Tapped"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Frame Grid.Column="1" x:Name="framePolotovarAno" CornerRadius="2" BackgroundColor="White" Margin="0, 23, 0, 23" Padding="0">
+                    <Label Text="Ano" x:Name="labelPolotovarAno" TextColor="Gray" FontSize="30" Margin="-2, -8, 0, 0" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="polotovarAno" Tapped="polotovarAno_Tapped_1"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+            </Grid>
+            
+            <Label Text="Výkres?" TextColor="Gray" FontSize="20" Margin="0, -25, 0, -25" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Grid BackgroundColor="Transparent" HeightRequest="80" Margin="0, 0, 0, -10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Frame Grid.Column="0" x:Name="frameVykresNe" CornerRadius="2" BackgroundColor="White" Margin="0, 23, 0, 23" Padding="0">
+                    <Label Text="Ne" x:Name="labelVykresNe" TextColor="Gray" FontSize="30" Margin="-2, -8, 0, 0" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="vykresNe" Tapped="vykresNe_Tapped"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Frame Grid.Column="1" x:Name="frameVykresAno" CornerRadius="2" BackgroundColor="White" Margin="0, 23, 0, 23" Padding="0">
+                    <Label Text="Ano" x:Name="labelVykresAno" TextColor="Gray" FontSize="30" Margin="-2, -8, 0, 0" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="vykresAno" Tapped="vykresAno_Tapped"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+            </Grid>
+            <Button Text="Uložit" BackgroundColor="#4A9E08" Clicked="Button_Clicked"/>
+        </StackLayout>
+
+        <StackLayout Grid.Column="3" Margin="0, -220, 0, 0" VerticalOptions="CenterAndExpand">
+            <SearchBar x:Name="searchBar" TextChanged="SearchBar_TextChanged" Margin="0, 220, 0, 0"/>
+            <StackLayout Margin="0, 0, 0, 0" Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="Center">
+                <Label Text="Datum" Margin="5, 0, 5, 0" TextColor="Gray"/>
+                <Label Text="Jméno" Margin="5, 0, 5, 0" TextColor="Gray"/>
+                <Label Text="ZUL" Margin="5, 0, 5, 0" TextColor="Gray"/>
+                <Label Text="Polotovar?" Margin="5, 0, 5, 0" TextColor="Gray"/>
+                <Label Text="Výkres?" Margin="5, 0, 5, 0" TextColor="Gray"/>
+                <Label Text="ks" Margin="5, 0, 5, 0" TextColor="Gray"/>
+            </StackLayout>
+            <CollectionView x:Name="seznamOdvozu" Background="transparent" HeightRequest="370">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal" BackgroundColor="White" HorizontalOptions="CenterAndExpand">
+                            <Label Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}" TextColor="Gray" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding Jmeno}" TextColor="Gray" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding Zul}" TextColor="Gray" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding Polotovar}" TextColor="Gray" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding Vykres}" TextColor="Gray" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding Ks}" TextColor="Gray" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <Button BackgroundColor="Red" Text="Delete" TextColor="White" Clicked="Button_Clicked_1"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </Grid>
+</ContentPage>
