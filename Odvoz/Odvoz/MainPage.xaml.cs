@@ -113,15 +113,13 @@ namespace Odvoz
             seznamOdvozu.ItemsSource = searchResult;
         }
 
-        private async void Button_Clicked_1(object sender, EventArgs e)
+        private async void DeleteButton(object sender, EventArgs e)
         {
-            var button = (Button)sender;
-            await button.ScaleTo(0.8, 50);
-            await button.ScaleTo(1, 50);
+            var button = (StackLayout)sender;
             var action = await DisplayAlert("Smazat", "Chcete smazat záznam?", "Ano", "Ne");
             if (action)
             {
-                var butto = sender as Button;
+                var butto = sender as StackLayout;
                 var plane = (Predmet)button.BindingContext;
                 var db = new SQLiteConnection(_dbPath);
                 db.Delete<Predmet>(plane.Id);

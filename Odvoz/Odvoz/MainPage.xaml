@@ -57,10 +57,12 @@
                     </Frame.GestureRecognizers>
                 </Frame>
             </Grid>
-            <Button Text="Uložit" BackgroundColor="#4A9E08" Clicked="Button_Clicked"/>
+            <Frame BackgroundColor="Gray" Padding="0">
+                <Button Text="Uložit" BackgroundColor="#4A9E08" Clicked="Button_Clicked" BorderColor="Gray"/>
+            </Frame>
         </StackLayout>
 
-        <StackLayout Grid.Column="3" Margin="0, -220, 0, 0" VerticalOptions="CenterAndExpand">
+        <StackLayout Grid.Column="3" Margin="0, -205, 0, 0" VerticalOptions="CenterAndExpand">
             <SearchBar x:Name="searchBar" TextChanged="SearchBar_TextChanged" Margin="0, 220, 0, 0"/>
             <StackLayout Margin="0, 0, 0, 0" Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="Center">
                 <Label Text="Datum" Margin="5, 0, 5, 0" TextColor="Gray"/>
@@ -73,14 +75,16 @@
             <CollectionView x:Name="seznamOdvozu" Background="transparent" HeightRequest="370">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout Orientation="Horizontal" BackgroundColor="White" HorizontalOptions="CenterAndExpand">
+                        <StackLayout Orientation="Horizontal" BackgroundColor="White" Margin="0, 5" HorizontalOptions="CenterAndExpand">
                             <Label Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}" TextColor="Gray" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                             <Label Text="{Binding Jmeno}" TextColor="Gray" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                             <Label Text="{Binding Zul}" TextColor="Gray" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                             <Label Text="{Binding Polotovar}" TextColor="Gray" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                             <Label Text="{Binding Vykres}" TextColor="Gray" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                             <Label Text="{Binding Ks}" TextColor="Gray" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                            <Button BackgroundColor="Red" Text="Delete" TextColor="White" Clicked="Button_Clicked_1"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="DeleteButton" NumberOfTapsRequired="2"/>
+                            </StackLayout.GestureRecognizers>
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
