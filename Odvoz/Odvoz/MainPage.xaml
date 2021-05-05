@@ -17,7 +17,6 @@
             <Entry x:Name="jmenoEntry" Placeholder="Jméno" Margin="0, 0, 0, 10" TextColor="Gray" PlaceholderColor="Gray" BackgroundColor="White" HorizontalTextAlignment="Center"/>
             <Entry x:Name="zulEntry" Placeholder="ZUL" Margin="0, 5, 0, 5" TextColor="Gray" PlaceholderColor="Gray" BackgroundColor="White" HorizontalTextAlignment="Center"/>
             <Entry x:Name="ksEntry" Placeholder="ks" Margin="0, 5, 0, 5" TextColor="Gray" PlaceholderColor="Gray" BackgroundColor="White" HorizontalTextAlignment="Center"/>
-            
             <Label Text="Polotovar?" TextColor="Gray" FontSize="20" Margin="0, -10, 0, -25" HorizontalOptions="Center" VerticalOptions="Center"/>
             <Grid BackgroundColor="Transparent" HeightRequest="80">
                 <Grid.ColumnDefinitions>
@@ -58,19 +57,19 @@
                 </Frame>
             </Grid>
             <Frame BackgroundColor="Gray" Padding="0">
-                <Button Text="Uložit" BackgroundColor="#4A9E08" Clicked="Button_Clicked" BorderColor="Gray"/>
+                <Button Text="Uložit" BackgroundColor="#4A9E08" Clicked="ImportButton" BorderColor="Gray"/>
             </Frame>
         </StackLayout>
 
         <StackLayout Grid.Column="3" Margin="0, -205, 0, 0" VerticalOptions="CenterAndExpand">
             <SearchBar x:Name="searchBar" TextChanged="SearchBar_TextChanged" Margin="0, 220, 0, 0"/>
-            <StackLayout Margin="0, 0, 0, 0" Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="Center">
-                <Label Text="Datum" Margin="5, 0, 5, 0" TextColor="Gray"/>
-                <Label Text="Jméno" Margin="5, 0, 5, 0" TextColor="Gray"/>
-                <Label Text="ZUL" Margin="5, 0, 5, 0" TextColor="Gray"/>
-                <Label Text="Polotovar?" Margin="5, 0, 5, 0" TextColor="Gray"/>
-                <Label Text="Výkres?" Margin="5, 0, 5, 0" TextColor="Gray"/>
-                <Label Text="ks" Margin="5, 0, 5, 0" TextColor="Gray"/>
+            <StackLayout Margin="0, 0, 0, 0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                <Label Text="Datum" Margin="10, 0, 10, 0" TextColor="Gray"/>
+                <Label Text="Jméno" Margin="10, 0, 10, 0" TextColor="Gray"/>
+                <Label Text="ZUL" Margin="10, 0, 10, 0" TextColor="Gray"/>
+                <Label Text="Polotovar?" Margin="10, 0, 10, 0" TextColor="Gray"/>
+                <Label Text="Výkres?" Margin="10, 0, 10, 0" TextColor="Gray"/>
+                <Label Text="ks" Margin="10, 0, 10, 0" TextColor="Gray"/>
             </StackLayout>
             <CollectionView x:Name="seznamOdvozu" Background="transparent" HeightRequest="370">
                 <CollectionView.ItemTemplate>

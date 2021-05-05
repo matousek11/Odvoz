@@ -26,7 +26,7 @@ namespace Odvoz
             seznamOdvozu.ItemsSource = db.Table<Predmet>().ToList();
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private void ImportButton(object sender, EventArgs e)
         {
             try 
             {
@@ -59,6 +59,27 @@ namespace Odvoz
             catch
             {
                 DisplayAlert("Chyba", "Něco se stalo", "Zkusit znovu");
+            }
+        }
+
+        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var db = new SQLiteConnection(_dbPath);
+            var searchResult = db.Table<Predmet>().Where(c => c.SearchId.ToLower().Contains(searchBar.Text.ToLower()));
+            seznamOdvozu.ItemsSource = searchResult;
+        }
+
+        private async void DeleteButton(object sender, EventArgs e)
+        {
+            var button = (StackLayout)sender;
+            var action = await DisplayAlert("Smazat", "Chcete smazat záznam?", "Ano", "Ne");
+            if (action)
+            {
+                var butto = sender as StackLayout;
+                var plane = (Predmet)button.BindingContext;
+                var db = new SQLiteConnection(_dbPath);
+                db.Delete<Predmet>(plane.Id);
+                Refresh();
             }
         }
 
@@ -104,27 +125,6 @@ namespace Odvoz
             labelVykresAno.TextColor = Color.FromHex("#ffffff");
             frameVykresNe.BackgroundColor = Color.FromHex("ffffff");
             labelVykresNe.TextColor = Color.FromHex("808080");
-        }
-
-        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            var db = new SQLiteConnection(_dbPath);
-            var searchResult = db.Table<Predmet>().Where(c => c.SearchId.ToLower().Contains(searchBar.Text.ToLower()));
-            seznamOdvozu.ItemsSource = searchResult;
-        }
-
-        private async void DeleteButton(object sender, EventArgs e)
-        {
-            var button = (StackLayout)sender;
-            var action = await DisplayAlert("Smazat", "Chcete smazat záznam?", "Ano", "Ne");
-            if (action)
-            {
-                var butto = sender as StackLayout;
-                var plane = (Predmet)button.BindingContext;
-                var db = new SQLiteConnection(_dbPath);
-                db.Delete<Predmet>(plane.Id);
-                Refresh();
-            }
         }
     }
 }
