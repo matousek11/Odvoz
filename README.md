@@ -15,6 +15,7 @@ Development ended, program has been fully developed.
 
 ## Technologies
 Xamarin
+SQLite
 
 ## Setup
 Open in Visual Studio 2019 and start it in Visual Studio.
