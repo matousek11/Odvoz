@@ -14,8 +14,8 @@ App is used for monitoring of flow of parts from storage for small companies lik
 Development ended, program has been fully developed.
 
 ## Technologies
-Xamarin
-SQLite
+- Xamarin
+- SQLite
 
 ## Setup
 Open in Visual Studio 2019 and start it in Visual Studio.
