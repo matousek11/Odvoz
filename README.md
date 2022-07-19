@@ -8,7 +8,7 @@
 
 ## About
 App is used for monitoring of flow of parts from storage for small companies like car service.
-![WakeMeHere screenshot](/WakeMeHere.png)
+![WakeMeHere screenshot](/Odvoz.png)
 
 ## Project status
 Development ended, program has been fully developed.
