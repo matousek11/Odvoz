@@ -8,8 +8,8 @@
 
   <Identity
     Name="42c124ac-b927-4680-8e01-28154d8953e4"
-    Publisher="CN=6a46f205-987c-41e1-9109-f77d3aa18aac"
-    Version="1.0.4.0" />
+    Publisher="CN=Lukas Matousek"
+    Version="1.0.6.0" />
 
   <mp:PhoneIdentity PhoneProductId="ec0cc741-fd3e-485c-81be-68815c480690" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
