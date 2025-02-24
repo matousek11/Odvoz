@@ -11,7 +11,7 @@ App is used for monitoring of flow of parts from storage for small companies lik
 ![WakeMeHere screenshot](/Odvoz.png)
 
 ## Project status
-Development ended, program has been fully developed.
+Development ended
 
 ## Technologies
 - Xamarin
